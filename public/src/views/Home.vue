@@ -87,6 +87,7 @@
 
                         domain = {
                             ...domain,
+                            ...this.invalidDomain,
                             name: this.domainToSearch,
                         };
 

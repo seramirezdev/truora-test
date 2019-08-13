@@ -15064,3 +15064,20 @@ W190813 20:52:40.254135 103 storage/store.go:3704  [n1,s1,r88/1:/System/tsd/cr.n
 W190813 20:52:40.256524 124 storage/store.go:3704  [n1,s1,r57/1:/System{/tsd/cr.s…-tse}] handle raft ready: 1.2s [processed=1]
 W190813 20:52:40.256647 126 storage/store.go:3704  [n1,s1,r71/1:/System/tsd/cr.{node.…-store…}] handle raft ready: 1.2s [processed=1]
 W190813 20:52:40.256664 119 storage/store.go:3704  [n1,s1,r4/1:/System/tsd{-/cr.nod…}] handle raft ready: 1.2s [processed=1]
+I190813 20:52:47.937083 162 server/status/runtime.go:500  [n1] runtime stats: 318 MiB RSS, 145 goroutines, 87 MiB/67 MiB/184 MiB GO alloc/idle/total, 106 MiB/138 MiB CGO alloc/total, 37.6 CGO/sec, 0.8/0.2 %(u/s)time, 0.0 %gc (1x), 25 KiB/34 KiB (r/w)net
+I190813 20:52:57.939201 162 server/status/runtime.go:500  [n1] runtime stats: 318 MiB RSS, 144 goroutines, 94 MiB/61 MiB/184 MiB GO alloc/idle/total, 106 MiB/138 MiB CGO alloc/total, 26.6 CGO/sec, 1.1/0.0 %(u/s)time, 0.0 %gc (0x), 15 KiB/18 KiB (r/w)net
+I190813 20:53:07.941429 162 server/status/runtime.go:500  [n1] runtime stats: 318 MiB RSS, 144 goroutines, 101 MiB/56 MiB/184 MiB GO alloc/idle/total, 106 MiB/138 MiB CGO alloc/total, 35.3 CGO/sec, 0.8/0.2 %(u/s)time, 0.0 %gc (0x), 111 KiB/2.7 MiB (r/w)net
+I190813 20:53:08.672779 62 gossip/gossip.go:557  [n1] gossip status (ok, 1 node)
+gossip client (0/3 cur/max conns)
+gossip server (0/3 cur/max conns, infos 0/0 sent/received, bytes 0B/0B sent/received)
+I190813 20:53:16.712255 1 cli/start.go:765  received signal 'interrupt'
+I190813 20:53:16.745708 1 cli/start.go:830  initiating graceful shutdown of server
+I190813 20:53:16.909371 59435 util/stop/stopper.go:546  [server drain process] quiescing; tasks left:
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+I190813 20:53:16.942444 59435 storage/engine/rocksdb.go:753  closing rocksdb instance at "/home/sergio/Desarrollo/GoProjects/src/github.com/seramirezdev/truora-test/cockroach-data/cockroach-temp274224268"
+I190813 20:53:16.977060 59435 storage/engine/rocksdb.go:753  closing rocksdb instance at "/home/sergio/Desarrollo/GoProjects/src/github.com/seramirezdev/truora-test/cockroach-data"
+I190813 20:53:17.040050 1 cli/start.go:876  server drained and shutdown completed
+I190813 20:53:17.075769 1 cli/error.go:229  interrupted
+Error: interrupted

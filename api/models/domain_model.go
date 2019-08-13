@@ -97,6 +97,15 @@ func (domain DomainModel) ConsultDomain(domainSearch string) (entities.Domain, e
 	// Objeto que se usará para devolver la información obtenida
 	consultDomain := entities.Domain{}
 
+	if dataOrg[0] == "error" {
+		return consultDomain, errors.New("Error, dominio inválido")
+	}
+
+	fmt.Println("Datos db: ", domainDB.Name)
+	fmt.Println("Datos html: ", html)
+	fmt.Println("Datos WhoIS: ", dataOrg)
+	fmt.Println("Datos SSLLAb: ", dataDomain.Status)
+
 	// Si es la primera vez que se consulta el dominio entonces se crea en la base de datos
 	if domainDB.Title == "" {
 
@@ -207,7 +216,9 @@ func getDataWhoIs(domainSearch string, dataWhoIs chan []string) {
 
 	result, err := whois.Whois(domainSearch)
 	if err != nil {
-		fmt.Println("Error obteniendo datos de WhoIs", err)
+		fmt.Println("Error obteniendo datos de WhoIs: ", err)
+		data[0] = "error"
+		dataWhoIs <- data
 		return
 	}
 

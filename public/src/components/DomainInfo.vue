@@ -1,43 +1,45 @@
 <template>
     <b-container fluid class="mb-5">
         <div v-if="domainData != null" class="shadow my-3">
-            <b-card-header
-                    class="m-0"
-                    header-class="text-center"
-                    :header-bg-variant="colorHeader"
-                    header-text-variant="white">
-                <h4 v-if="msgHeader !== ''">{{ msgHeader }}</h4>
-            </b-card-header>
-            <b-card-body>
-                <h3 class="mb-3">{{ domainData.title }}</h3>
-                <img :src="domainData.logo" alt="" height="40"/>
 
-                <h3 class="ml-3" style="display: inline-flex">{{ domainData.name }}</h3>
-                <h3 :class="domainData.is_down ? 'text-warning': 'text-success'">
-                    {{ domainData.is_down ? 'Servidores caido' : 'Servidores funcionando' }}
-                </h3>
-                <h3>
-                    Cambios en el dominio: {{ domainData.servers_changed ? 'Sí' : 'No' }}
-                </h3>
-                <h3>
-                    Grado SSL más bajo: {{ domainData.ssl_grade }}
-                </h3>
-                <h3>
-                    Grado SSL previo: {{ domainData.previous_ssl_grade }}
-                </h3>
+            <div v-if="!domainData.invalidDomain">
+                <b-card-header
+                        class="m-0"
+                        header-class="text-center"
+                        :header-bg-variant="colorHeader"
+                        header-text-variant="white">
+                    <h4 v-if="msgHeader !== ''">{{ msgHeader }}</h4>
+                </b-card-header>
+                <b-card-body>
+                    <h3 class="mb-3">{{ domainData.title }}</h3>
+                    <img :src="domainData.logo" alt="" height="40"/>
 
-                <h3>
-                    Servidores:
-                    <b-badge pill :variant="domainData.servers.length === 0 ? 'warning' : 'info   '">
-                        {{ domainData.servers.length > 0 ? domainData.servers.length :
-                        'Buscando...'}}
-                    </b-badge>
-                </h3>
+                    <h3 class="ml-3" style="display: inline-flex">{{ domainData.name }}</h3>
+                    <h3 :class="domainData.is_down ? 'text-warning': 'text-success'">
+                        {{ domainData.is_down ? 'Servidores caido' : 'Servidores funcionando' }}
+                    </h3>
+                    <h3>
+                        Cambios en el dominio: {{ domainData.servers_changed ? 'Sí' : 'No' }}
+                    </h3>
+                    <h3>
+                        Grado SSL más bajo: {{ domainData.ssl_grade }}
+                    </h3>
+                    <h3>
+                        Grado SSL previo: {{ domainData.previous_ssl_grade }}
+                    </h3>
 
-                <SeversInfo v-bind:servers="domainData.servers"/>
+                    <h3>
+                        Servidores:
+                        <b-badge pill :variant="domainData.servers.length === 0 ? 'warning' : 'info   '">
+                            {{ domainData.servers.length > 0 ? domainData.servers.length :
+                            'Buscando...'}}
+                        </b-badge>
+                    </h3>
 
-            </b-card-body>
+                    <SeversInfo v-bind:servers="domainData.servers"/>
 
+                </b-card-body>
+            </div>
         </div>
     </b-container>
 </template>
