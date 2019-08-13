@@ -25,6 +25,7 @@
                         <b-button class="btn-block" variant="info" @click="getDomain" :disabled="isLoading">Consultar
                         </b-button>
                     </b-col>
+
                 </b-row>
             </b-card-body>
         </div>
@@ -76,10 +77,12 @@
                 let time = 500;
                 let allServersGetSSL = true;
 
+
                 try {
                     let getAllData = false;
+                    const search = this.domainToSearch;
                     do {
-                        let json = await axios.get(`http://localhost:3000/consult-domain/${this.domainToSearch}`);
+                        let json = await axios.get(`http://localhost:3000/consult-domain/${search}`);
                         let domain = json.data;
 
                         domain = {

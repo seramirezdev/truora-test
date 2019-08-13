@@ -10,10 +10,9 @@
             </b-card-header>
             <b-card-body>
                 <h3 class="mb-3">{{ domainData.title }}</h3>
-                <span>
-                    <img :src="domainData.logo | pathImage(domainData.name)" alt="Icon" height="50"/>
-                    <h2 class="ml-3" style="display: inline-flex">{{ domainData.name }}</h2>
-                </span>
+                <img :src="domainData.logo" alt="" height="40"/>
+
+                <h3 class="ml-3" style="display: inline-flex">{{ domainData.name }}</h3>
                 <h3 :class="domainData.is_down ? 'text-warning': 'text-success'">
                     {{ domainData.is_down ? 'Servidores caido' : 'Servidores funcionando' }}
                 </h3>
@@ -29,12 +28,13 @@
 
                 <h3>
                     Servidores:
-                    <b-badge pill variant="primary">{{ domainData.servers.length > 0 ? domainData.servers.length :
+                    <b-badge pill :variant="domainData.servers.length === 0 ? 'warning' : 'info   '">
+                        {{ domainData.servers.length > 0 ? domainData.servers.length :
                         'Buscando...'}}
                     </b-badge>
                 </h3>
 
-                <SeversInfo v-bind:domains="domainData.servers"/>
+                <SeversInfo v-bind:servers="domainData.servers"/>
 
             </b-card-body>
 
@@ -46,7 +46,6 @@
 
     import {mapState} from 'vuex';
     import SeversInfo from "./SeversInfo";
-    import axios from 'axios';
 
     export default {
         name: "DomainInfo",
@@ -57,23 +56,6 @@
                 sslGradesObtained: false,
                 colorHeader: 'warning',
                 msgHeader: null,
-            }
-        },
-        filters: {
-            async pathImage(path, domain) {
-                axios({
-                    method: 'get',
-                    url: path,
-                    responseType: 'stream'
-                })
-                    .then((response) => {
-                        //response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
-                        console.log(response);
-                    }).catch(e => {
-                    console.log(e);
-                });
-
-                return path;
             }
         },
         computed: {
