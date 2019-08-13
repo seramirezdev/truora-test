@@ -16,6 +16,9 @@
                         <b-card-body>
                             <b-card-text>
                                 <p>
+                                    <b>{{ domain.title }}</b>
+                                </p>
+                                <p>
                                     <b :class="domain.is_down ? 'text-danger' : 'text-success'">
                                         {{ domain.is_down ? 'Servidores caidos' : 'Servidores activos' }}
                                     </b>
