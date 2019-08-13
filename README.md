@@ -15,8 +15,16 @@ En la raiz del proyecto ejecutar
 cockroach start --insecure --http-addr localhost:8081
 ```
 
-### Correr proyecto
+### Correr servidor GO
 En la raiz del proyecto ejecutar
 ```
 go run main.go
+```
+
+### Correr aplicación Vue-js
+dentro de `/public`ejecutar
+```
+npm run serve
+o
+yarn serve
 ```
