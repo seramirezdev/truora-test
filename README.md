@@ -9,6 +9,12 @@ go get github.com/likexian/whois-go
 go get github.com/gocolly/colly
 ```
 
+### Correr cockroachdb
+En la raiz del proyecto ejecutar
+```
+cockroach start --insecure
+```
+
 ### Correr proyecto
 En la raiz del proyecto ejecutar
 ```
