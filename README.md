@@ -10,9 +10,9 @@ go get github.com/gocolly/colly
 ```
 
 ### Correr cockroachdb
-En la raiz del proyecto ejecutar --http-addr localhost:8081
+En la raiz del proyecto ejecutar
 ```
-cockroach start --insecure
+cockroach start --insecure --http-addr localhost:8081
 ```
 
 ### Correr proyecto
