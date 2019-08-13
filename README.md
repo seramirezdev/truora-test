@@ -24,7 +24,9 @@ go run main.go
 ### Correr aplicación Vue-js
 dentro de `/public` ejecutar
 ```
+npm install
 npm run serve
 o
+yarn install
 yarn serve
 ```
