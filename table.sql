@@ -10,9 +10,6 @@ CREATE TABLE IF NOT EXISTS domains (
     is_down BOOL
 );
 
-CREATE INDEX IF NOT EXISTS idx_domains_servers ON domains USING gin (servers);
-
-
 INSERT INTO domains (domain, servers, servers_changed, ssl_grade, previous_ssl_grade, logo, title, is_down) values ('truora.com', '[
     {
         "address": "server1",
