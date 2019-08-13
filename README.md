@@ -22,7 +22,7 @@ go run main.go
 ```
 
 ### Correr aplicación Vue-js
-dentro de `/public`ejecutar
+dentro de `/public` ejecutar
 ```
 npm run serve
 o
